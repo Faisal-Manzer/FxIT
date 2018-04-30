@@ -19,7 +19,7 @@ class RecordViewController: UIViewController {
     let recordInStandBy = "Tap to record"
     let recordImage = UIImage(named: "record")
     let stopImage = UIImage(named: "stop")
-    
+    let recordingImageArray = [UIImage(named: "recording1"), UIImage(named: "recording2"), UIImage(named: "recording3"), UIImage(named: "record"),]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +33,17 @@ class RecordViewController: UIViewController {
     
     //MARK: Methods
     @IBAction func toggleRecording(_ sender: Any) {
-        assistanceLabel.text = isRecording ? recordInProgress : recordInStandBy
-        recordBtnImage.image = isRecording ? stopImage : recordImage
+        
         isRecording = !isRecording
+        assistanceLabel.text = isRecording ? recordInProgress : recordInStandBy
+        if isRecording {
+            recordBtnImage.animationImages = recordingImageArray as? [UIImage]
+            recordBtnImage.animationDuration = 1
+            recordBtnImage.startAnimating()
+        } else {
+            recordBtnImage.stopAnimating()
+            recordBtnImage.image = recordImage
+        }
     }
     
 }

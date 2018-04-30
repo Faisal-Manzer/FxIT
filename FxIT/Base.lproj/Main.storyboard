@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,18 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record" translatesAutoresizingMaskIntoConstraints="NO" id="2XO-fp-UB1">
-                                <rect key="frame" x="82" y="275" width="250" height="250"/>
+                                <rect key="frame" x="107" y="300" width="200" height="200"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="JEw-nw-eRX"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="Soy-N7-0Nd"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="JEw-nw-eRX"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="Soy-N7-0Nd"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="5fG-68-32O" appends="YES" id="mD6-AX-yhk"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHL-CO-qzk">
-                                <rect key="frame" x="156" y="238" width="102" height="21"/>
+                                <rect key="frame" x="156" y="263" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,6 +58,7 @@
                 <tapGestureRecognizer id="5fG-68-32O">
                     <connections>
                         <action selector="toggleRecording:" destination="BYZ-38-t0r" id="RkL-ZJ-KOe"/>
+                        <segue destination="MWK-2i-Ybj" kind="show" id="QoT-5c-Vzw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2d9-AE-mQI">
-                                <rect key="frame" x="10" y="20" width="394" height="344.33333333333331"/>
+                                <rect key="frame" x="10" y="79.999999999999972" width="394" height="410.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xca-z4-YNB">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
@@ -191,24 +191,30 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sVu-3R-3WE">
+                                        <rect key="frame" x="0.0" y="360.33333333333331" width="394" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLs-CV-yWP">
+                                                <rect key="frame" x="0.0" y="0.0" width="131.33333333333334" height="50"/>
+                                                <state key="normal" image="save"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="La0-xj-9oo">
+                                                <rect key="frame" x="131.33333333333331" y="0.0" width="131.33333333333331" height="50"/>
+                                                <state key="normal" image="play"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXM-Eg-BUN">
+                                                <rect key="frame" x="262.66666666666669" y="0.0" width="131.33333333333331" height="50"/>
+                                                <state key="normal" image="retake"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5z-JW-XPD">
-                                <rect key="frame" x="182" y="380.33333333333331" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="5JX-hY-w2U"/>
-                                    <constraint firstAttribute="width" secondItem="P5z-JW-XPD" secondAttribute="height" multiplier="1:1" id="ZeG-Ds-Xnm"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="v4B-wF-A4F"/>
-                                </constraints>
-                                <state key="normal" image="play"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="P5z-JW-XPD" firstAttribute="top" secondItem="2d9-AE-mQI" secondAttribute="bottom" constant="16" id="Fxg-ps-jxV"/>
                             <constraint firstItem="dYF-M9-Az9" firstAttribute="trailing" secondItem="2d9-AE-mQI" secondAttribute="trailing" constant="10" id="L6U-5Z-FoZ"/>
-                            <constraint firstItem="P5z-JW-XPD" firstAttribute="centerX" secondItem="dYF-M9-Az9" secondAttribute="centerX" id="LJB-YY-VwX"/>
-                            <constraint firstItem="2d9-AE-mQI" firstAttribute="top" secondItem="dYF-M9-Az9" secondAttribute="top" id="PGD-z2-kYl"/>
+                            <constraint firstItem="2d9-AE-mQI" firstAttribute="top" secondItem="dYF-M9-Az9" secondAttribute="top" constant="16" id="PGD-z2-kYl"/>
                             <constraint firstItem="2d9-AE-mQI" firstAttribute="leading" secondItem="dYF-M9-Az9" secondAttribute="leading" constant="10" id="U7U-5h-Oy9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dYF-M9-Az9"/>
@@ -243,5 +249,7 @@
     <resources>
         <image name="play" width="50" height="50"/>
         <image name="record" width="250" height="250"/>
+        <image name="retake" width="50" height="50"/>
+        <image name="save" width="50" height="50"/>
     </resources>
 </document>

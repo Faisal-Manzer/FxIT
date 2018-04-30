@@ -15,7 +15,7 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var recordBtnImage: UIImageView!
     
     var isRecording = false
-    let recordInProgress = "Recording..."
+    let recordInProgress = "Recording... Tap on done"
     let recordInStandBy = "Tap to record"
     let recordImage = UIImage(named: "record")
     let stopImage = UIImage(named: "stop")
@@ -24,11 +24,9 @@ class RecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        assistanceLabel.text = recordInStandBy
+        recordBtnImage.image = recordImage
     }
     
     //MARK: Methods

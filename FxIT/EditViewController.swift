@@ -9,6 +9,8 @@
 import UIKit
 
 class EditViewController: UIViewController {
+    
+    var recordedAudioUrl: URL!
 
     override func viewDidLoad() {
         super.viewDidLoad()

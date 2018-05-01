@@ -58,7 +58,7 @@
                 <tapGestureRecognizer id="5fG-68-32O">
                     <connections>
                         <action selector="toggleRecording:" destination="BYZ-38-t0r" id="RkL-ZJ-KOe"/>
-                        <segue destination="MWK-2i-Ybj" kind="show" id="QoT-5c-Vzw"/>
+                        <segue destination="MWK-2i-Ybj" kind="show" identifier="editAudioSegue" id="QoT-5c-Vzw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

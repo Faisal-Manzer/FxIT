@@ -92,7 +92,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         if segue.identifier == "editAudioSegue" {
             let edidSoundVC = segue.destination as! EditViewController
             let recordedAudioURL = sender as! URL
-            edidSoundVC.recordedAudioUrl = recordedAudioURL
+            edidSoundVC.recordedAudioURL = recordedAudioURL
         }
     }
     

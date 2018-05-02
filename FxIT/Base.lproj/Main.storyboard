@@ -52,13 +52,13 @@
                     <connections>
                         <outlet property="assistanceLabel" destination="BHL-CO-qzk" id="V8u-li-M3Z"/>
                         <outlet property="recordBtnImage" destination="2XO-fp-UB1" id="IXB-Uf-rFO"/>
+                        <segue destination="MWK-2i-Ybj" kind="show" identifier="editAudioSegue" id="8YH-Ql-Tca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="5fG-68-32O">
                     <connections>
                         <action selector="toggleRecording:" destination="BYZ-38-t0r" id="RkL-ZJ-KOe"/>
-                        <segue destination="MWK-2i-Ybj" kind="show" identifier="editAudioSegue" id="QoT-5c-Vzw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

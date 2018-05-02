@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController, AVAudioRecorderDelegate {
     //MARK: Properties
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var pitchLabel: UILabel!
@@ -21,8 +22,18 @@ class EditViewController: UIViewController {
     @IBOutlet weak var echoSwitch: UISwitch!
     @IBOutlet weak var reverbSwitch: UISwitch!
     
+    
+    @IBOutlet weak var playButton: UIButton!
+    
     var effect = Effects()
+    
     var recordedAudioURL: URL!
+    var audioFile:AVAudioFile!
+    var audioEngine:AVAudioEngine!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var stopTimer: Timer!
+    
+    var isPlaying = false
     
     enum sliderType: Int {
         case speed
@@ -109,5 +120,15 @@ class EditViewController: UIViewController {
         speedSlider.setValue(effect.speed, animated: true)
         pitchSlider.setValue(effect.pitch, animated: true)
     }
+    
+    
+    @IBAction func playButton(_ sender: UIButton) {
+        if !isPlaying {
+            playSound(rate: effect.speed, pitch: effect.pitch, echo: effect.echo, reverb: effect.reverb)
+        } else {
+            stopAudio()
+        }
+    }
+    
     
 }

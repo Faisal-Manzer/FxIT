@@ -234,6 +234,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="La0-xj-9oo">
                                                 <rect key="frame" x="100" y="0.0" width="100" height="50"/>
                                                 <state key="normal" image="play"/>
+                                                <connections>
+                                                    <action selector="playButton:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="ryV-t6-vW9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXM-Eg-BUN">
                                                 <rect key="frame" x="200" y="0.0" width="100" height="50"/>
@@ -260,6 +263,7 @@
                         <outlet property="echoSwitch" destination="7iS-fO-Grt" id="uL3-kg-QnP"/>
                         <outlet property="pitchLabel" destination="D7H-Qq-Z3K" id="cym-GW-8Vo"/>
                         <outlet property="pitchSlider" destination="0Mc-kQ-gkc" id="HC5-tK-f6R"/>
+                        <outlet property="playButton" destination="La0-xj-9oo" id="0jl-ii-UOz"/>
                         <outlet property="reverbLabel" destination="VxM-8a-qMP" id="StB-y6-2fO"/>
                         <outlet property="reverbSwitch" destination="McG-Pe-t5s" id="Ny7-d1-20O"/>
                         <outlet property="speedLabel" destination="vjD-cd-bXV" id="P4M-ND-0cN"/>

@@ -14,11 +14,18 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     //MARK: Properties
     @IBOutlet weak var assistanceLabel: UILabel!
     @IBOutlet weak var recordBtnImage: UIImageView!
+    @IBOutlet weak var settingLabel: UILabel!
     
     var isRecording = false
+    var isPermission = false
     let recordInProgress = "Recording... Tap on done"
     let recordInStandBy = "Tap to record"
     let recordImage = UIImage(named: "record")
+    let askPermissionImage = UIImage(named: "ask")
+    let deniedPermissionImage = UIImage(named: "denied")
+    let permissionDeniedText = "Please Give Recording Permission..."
+    let settingSteps = "Settings> FxIT> Microphone"
+    let askPermissionText = "Tap to Enable Microphone"
     let stopImage = UIImage(named: "stop")
     let recordingImageArray = [UIImage(named: "recording1"), UIImage(named: "recording2"), UIImage(named: "recording3"), UIImage(named: "record"),]
     
@@ -27,18 +34,19 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        assistanceLabel.text = recordInStandBy
         if recordBtnImage.isAnimating {
             recordBtnImage.stopAnimating()
         }
-        recordBtnImage.image = recordImage
+        assistanceLabel.text = recordInStandBy
+        settingLabel.text = ""
+        recordBtnImage.isUserInteractionEnabled = true
+        permissionSetting()
     }
     
     //MARK: Methods
     @IBAction func toggleRecording(_ sender: Any) {
         isRecording = !isRecording
-        if isRecording {
+        if isRecording && isPermission{
             recordAuido()
         } else {
             stopRecording()
@@ -96,5 +104,24 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    //MARK: Permession
+    func permissionSetting() {
+        switch AVAudioSession.sharedInstance().recordPermission() {
+        case AVAudioSessionRecordPermission.granted:
+            assistanceLabel.text = recordInStandBy
+            recordBtnImage.image = recordImage
+            isPermission = true
+        case AVAudioSessionRecordPermission.denied:
+            assistanceLabel.text = permissionDeniedText
+            settingLabel.text = settingSteps
+            recordBtnImage.isUserInteractionEnabled = false
+            recordBtnImage.image = deniedPermissionImage
+        case AVAudioSessionRecordPermission.undetermined:
+            assistanceLabel.text = askPermissionText
+            recordBtnImage.image = askPermissionImage
+        }
+    }
+    
+    diloge
 }
 

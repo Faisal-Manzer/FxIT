@@ -29,8 +29,19 @@
                                     <outletCollection property="gestureRecognizers" destination="5fG-68-32O" appends="YES" id="mD6-AX-yhk"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHL-CO-qzk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHL-CO-qzk">
                                 <rect key="frame" x="109" y="135" width="102" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Tap to record">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prf-LO-xdG">
+                                <rect key="frame" x="160" y="388" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,8 +52,10 @@
                         <constraints>
                             <constraint firstItem="BHL-CO-qzk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4dW-IP-78h"/>
                             <constraint firstItem="2XO-fp-UB1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GHd-id-1eO"/>
+                            <constraint firstItem="Prf-LO-xdG" firstAttribute="top" secondItem="2XO-fp-UB1" secondAttribute="bottom" constant="16" id="HT9-Ee-8Lk"/>
                             <constraint firstItem="2XO-fp-UB1" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cJx-K4-fq0"/>
                             <constraint firstItem="2XO-fp-UB1" firstAttribute="top" secondItem="BHL-CO-qzk" secondAttribute="bottom" constant="16" id="cfo-lP-XnM"/>
+                            <constraint firstItem="Prf-LO-xdG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oDZ-e5-Cgl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -52,6 +65,7 @@
                     <connections>
                         <outlet property="assistanceLabel" destination="BHL-CO-qzk" id="V8u-li-M3Z"/>
                         <outlet property="recordBtnImage" destination="2XO-fp-UB1" id="IXB-Uf-rFO"/>
+                        <outlet property="settingLabel" destination="Prf-LO-xdG" id="dG4-LQ-Wm1"/>
                         <segue destination="MWK-2i-Ybj" kind="show" identifier="editAudioSegue" id="8YH-Ql-Tca"/>
                     </connections>
                 </viewController>

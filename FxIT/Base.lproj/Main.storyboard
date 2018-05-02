@@ -84,11 +84,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="a2B-EW-1zE">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.01" maxValue="1.99" translatesAutoresizingMaskIntoConstraints="NO" id="a2B-EW-1zE" userLabel="speedSlider">
                                                 <rect key="frame" x="98" y="0.0" width="204" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="JC0-H8-gwz"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="speedValueChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="BRh-ie-Og3"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -101,11 +104,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1000" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="0Mc-kQ-gkc">
+                                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1000" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="0Mc-kQ-gkc" userLabel="pitchSlider">
                                                 <rect key="frame" x="98" y="0.0" width="204" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="Has-Sd-D0O"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="pitchValueChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="THT-ag-7mg"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -120,6 +126,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7iS-fO-Grt">
                                                 <rect key="frame" x="251" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="echoStateChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="6FS-Gz-0ur"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -132,8 +141,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="McG-Pe-t5s">
+                                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="McG-Pe-t5s">
                                                 <rect key="frame" x="251" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="reverbStateChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="jPi-jf-7aZ"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -163,31 +175,49 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae9-a1-X4S">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
                                                 <state key="normal" title="Snail"/>
+                                                <connections>
+                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="OMB-Bg-Kld"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1B-GI-QDe">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1B-GI-QDe">
                                                 <rect key="frame" x="114.5" y="0.0" width="70" height="30"/>
                                                 <state key="normal" title="Chipmunk"/>
+                                                <connections>
+                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="4Qc-Nr-hvs"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5S-S3-qhF">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5S-S3-qhF">
                                                 <rect key="frame" x="265" y="0.0" width="35" height="30"/>
                                                 <state key="normal" title="Echo"/>
+                                                <connections>
+                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="2GV-9R-YFo"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-5b-D9k">
                                         <rect key="frame" x="0.0" y="286.5" width="300" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVU-Ui-O9M">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVU-Ui-O9M">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
                                                 <state key="normal" title="Rabbit"/>
+                                                <connections>
+                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="5oh-fB-Oqt"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZc-Fh-Lms">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZc-Fh-Lms">
                                                 <rect key="frame" x="129.5" y="0.0" width="40" height="30"/>
                                                 <state key="normal" title="Vader"/>
+                                                <connections>
+                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="zLp-kE-RWh"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmQ-WC-hLt">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmQ-WC-hLt">
                                                 <rect key="frame" x="252" y="0.0" width="48" height="30"/>
                                                 <state key="normal" title="Reverb"/>
+                                                <connections>
+                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="7Ff-qY-oed"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -222,6 +252,12 @@
                     <navigationItem key="navigationItem" title="Add Fx" id="S36-IF-w1c">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="MKL-mY-PT7"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="echoLabel" destination="miT-RZ-rgD" id="RhC-Js-b0T"/>
+                        <outlet property="pitchLabel" destination="D7H-Qq-Z3K" id="cym-GW-8Vo"/>
+                        <outlet property="reverbLabel" destination="VxM-8a-qMP" id="StB-y6-2fO"/>
+                        <outlet property="speedLabel" destination="vjD-cd-bXV" id="P4M-ND-0cN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqN-CN-Mvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

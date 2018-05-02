@@ -9,21 +9,31 @@
 import UIKit
 
 class EditViewController: UIViewController {
-    
+    //MARK: Properties
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var pitchLabel: UILabel!
     @IBOutlet weak var echoLabel: UILabel!
     @IBOutlet weak var reverbLabel: UILabel!
     
+    
+    @IBOutlet weak var speedSlider: UISlider!
+    @IBOutlet weak var pitchSlider: UISlider!
+    @IBOutlet weak var echoSwitch: UISwitch!
+    @IBOutlet weak var reverbSwitch: UISwitch!
+    
     var effect = Effects()
     var recordedAudioURL: URL!
-    var speedSliderValue: Float = 1
-    var pitchSliderValue: Float = 0
-    var isEcho: Bool = false
-    var isReverb: Bool = false
-    enum SliderType: Int {
-        case speed = 0, pitch = 1
+    
+    enum sliderType: Int {
+        case speed
+        case pitch
     }
+    
+    enum switchType: Int {
+        case echo
+        case reverb
+    }
+    
     enum presetButton: Int {
         case snail
         case chipmunk
@@ -32,6 +42,7 @@ class EditViewController: UIViewController {
         case vader
         case reverb
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,49 +50,64 @@ class EditViewController: UIViewController {
     }
 
     //MARK: Actions
-    @IBAction func speedValueChange(_ sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         let sliderValue = Float(sender.value)
-        speedLabel.text = "Speed = \(sliderValue)"
-        speedSliderValue = sliderValue
-        effect.speed = sliderValue
-    }
-  
-    @IBAction func pitchValueChange(_ sender: UISlider) {
-        let sliderValue = Float(sender.value)
-        pitchLabel.text = "Pitch = \(sliderValue)"
-        pitchSliderValue = sliderValue
-        effect.pitch = sliderValue
+        switch(sliderType(rawValue: sender.tag)!){
+        case .speed:
+//            speedSliderValue = sliderValue
+            effect.speed = sliderValue
+            speedLabel.text = "Speed:\(sliderValue)"
+        case .pitch:
+//            pitchSliderValue = sliderValue
+            effect.pitch = sliderValue
+            pitchLabel.text = "Pitch:\(sliderValue)"
+        }
     }
     
-    @IBAction func echoStateChange(_ sender: UISwitch) {
+    @IBAction func switchStateChanged(_ sender: UISwitch) {
         let state = sender.isOn
-        echoLabel.text = "Echo = \(state)"
-        isEcho = state
-        effect.echo = state
+        switch (switchType(rawValue: sender.tag)!) {
+        case .echo:
+//            isEcho = state
+            effect.echo = state
+            echoLabel.text = "Echo:\(state)"
+        case .reverb:
+//            isReverb = state
+            effect.reverb = state
+            reverbLabel.text = "Reverb:\(state)"
+        }
     }
-    
-    @IBAction func reverbStateChange(_ sender: UISwitch) {
-        let state = sender.isOn
-        reverbLabel.text = "Reverb = \(state)"
-        isReverb = state
-        effect.reverb = state
-    }
-    
-    @IBAction func presetButtonActio(_ sender: UIButton) {
+   
+    @IBAction func presetButtionAction(_ sender: UIButton) {
         switch(presetButton(rawValue: sender.tag)!) {
         case .snail:
-            print("snail")
+            effect = Effects(speed: 0.5)
         case .rabbit:
-            print("rabbit")
+            effect = Effects(speed: 1.5)
         case .chipmunk:
-            print("chipmunk")
+            effect = Effects(pitch: 1000)
         case .vader:
-            print("vader")
+            effect = Effects(pitch: -1000)
         case .echo:
-            print("echo")
+            effect = Effects(echo: true)
         case .reverb:
-            print("reverb")
+            effect = Effects(reverb: true)
         }
+        
+        resetUI()
+    }
+    
+    
+    @IBAction func resetAll(_ sender: UIButton) {
+        effect = Effects()
+        resetUI()
+    }
+    
+    func resetUI() {
+        echoSwitch.setOn(effect.echo, animated: true)
+        reverbSwitch.setOn(effect.reverb, animated: true)
+        speedSlider.setValue(effect.speed, animated: true)
+        pitchSlider.setValue(effect.pitch, animated: true)
     }
     
 }

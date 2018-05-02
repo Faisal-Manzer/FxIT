@@ -90,7 +90,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="JC0-H8-gwz"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="speedValueChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="BRh-ie-Og3"/>
+                                                    <action selector="sliderValueChanged:" destination="MWK-2i-Ybj" eventType="valueChanged" id="DVt-cU-QIt"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -110,7 +110,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="Has-Sd-D0O"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="pitchValueChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="THT-ag-7mg"/>
+                                                    <action selector="sliderValueChanged:" destination="MWK-2i-Ybj" eventType="valueChanged" id="Byq-Ki-OIc"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -127,7 +127,7 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7iS-fO-Grt">
                                                 <rect key="frame" x="251" y="0.0" width="51" height="31"/>
                                                 <connections>
-                                                    <action selector="echoStateChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="6FS-Gz-0ur"/>
+                                                    <action selector="switchStateChanged:" destination="MWK-2i-Ybj" eventType="valueChanged" id="cyJ-gi-fCx"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
@@ -144,7 +144,7 @@
                                             <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="McG-Pe-t5s">
                                                 <rect key="frame" x="251" y="0.0" width="51" height="31"/>
                                                 <connections>
-                                                    <action selector="reverbStateChange:" destination="MWK-2i-Ybj" eventType="valueChanged" id="jPi-jf-7aZ"/>
+                                                    <action selector="switchStateChanged:" destination="MWK-2i-Ybj" eventType="valueChanged" id="fcC-U6-45U"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
@@ -155,6 +155,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uro-tQ-stB">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                 <state key="normal" title="Reset Default"/>
+                                                <connections>
+                                                    <action selector="resetAll:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="AjN-HC-N51"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -176,21 +179,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
                                                 <state key="normal" title="Snail"/>
                                                 <connections>
-                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="OMB-Bg-Kld"/>
+                                                    <action selector="presetButtionAction:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="8cV-RS-h7h"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1B-GI-QDe">
                                                 <rect key="frame" x="114.5" y="0.0" width="70" height="30"/>
                                                 <state key="normal" title="Chipmunk"/>
                                                 <connections>
-                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="4Qc-Nr-hvs"/>
+                                                    <action selector="presetButtionAction:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="erV-ke-feq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5S-S3-qhF">
                                                 <rect key="frame" x="265" y="0.0" width="35" height="30"/>
                                                 <state key="normal" title="Echo"/>
                                                 <connections>
-                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="2GV-9R-YFo"/>
+                                                    <action selector="presetButtionAction:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="wXM-0I-sxe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -202,21 +205,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
                                                 <state key="normal" title="Rabbit"/>
                                                 <connections>
-                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="5oh-fB-Oqt"/>
+                                                    <action selector="presetButtionAction:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="dQB-Xo-8bM"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZc-Fh-Lms">
                                                 <rect key="frame" x="129.5" y="0.0" width="40" height="30"/>
                                                 <state key="normal" title="Vader"/>
                                                 <connections>
-                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="zLp-kE-RWh"/>
+                                                    <action selector="presetButtionAction:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="7ZL-gY-11h"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmQ-WC-hLt">
                                                 <rect key="frame" x="252" y="0.0" width="48" height="30"/>
                                                 <state key="normal" title="Reverb"/>
                                                 <connections>
-                                                    <action selector="presetButtonActio:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="7Ff-qY-oed"/>
+                                                    <action selector="presetButtionAction:" destination="MWK-2i-Ybj" eventType="touchUpInside" id="nMQ-eT-JbW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -254,9 +257,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="echoLabel" destination="miT-RZ-rgD" id="RhC-Js-b0T"/>
+                        <outlet property="echoSwitch" destination="7iS-fO-Grt" id="uL3-kg-QnP"/>
                         <outlet property="pitchLabel" destination="D7H-Qq-Z3K" id="cym-GW-8Vo"/>
+                        <outlet property="pitchSlider" destination="0Mc-kQ-gkc" id="HC5-tK-f6R"/>
                         <outlet property="reverbLabel" destination="VxM-8a-qMP" id="StB-y6-2fO"/>
+                        <outlet property="reverbSwitch" destination="McG-Pe-t5s" id="Ny7-d1-20O"/>
                         <outlet property="speedLabel" destination="vjD-cd-bXV" id="P4M-ND-0cN"/>
+                        <outlet property="speedSlider" destination="a2B-EW-1zE" id="bUa-D0-NJ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqN-CN-Mvz" userLabel="First Responder" sceneMemberID="firstResponder"/>

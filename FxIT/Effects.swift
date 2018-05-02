@@ -11,12 +11,12 @@ import Foundation
 class Effects {
     
     //MARK: Properties
-    var speed: Float
-    var pitch: Float
-    var echo: Bool
-    var reverb: Bool
+    var speed: Float = 1
+    var pitch: Float = 0
+    var echo: Bool = false
+    var reverb: Bool = false
 
-    init(speed: Float = 1.0, pitch: Float = 0.0, echo: Bool = false, reverb: Bool = false) {
+    init(speed: Float = 1, pitch: Float = 0, echo: Bool = false, reverb: Bool = false) {
         self.speed = speed
         self.pitch = pitch
         self.echo = echo

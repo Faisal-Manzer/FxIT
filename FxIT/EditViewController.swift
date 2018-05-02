@@ -124,10 +124,12 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func playButton(_ sender: UIButton) {
         if !isPlaying {
-            playSound(rate: effect.speed, pitch: effect.pitch, echo: effect.echo, reverb: effect.reverb)
+            playButton.setImage(UIImage(named: "stop"), for: .normal)
         } else {
-            stopAudio()
+            playButton.setImage(UIImage(named: "play"), for: .normal)
         }
+        
+        isPlaying = !isPlaying
     }
     
     

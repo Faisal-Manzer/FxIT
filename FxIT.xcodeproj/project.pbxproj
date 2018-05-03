@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B0CBF97209A425000875AB7 /* EditAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0CBF96209A425000875AB7 /* EditAudio.swift */; };
+		4B0E85BE209B141B00877727 /* SaveAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E85BD209B141B00877727 /* SaveAudioViewController.swift */; };
 		4B614F522097473F00A15E5F /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B614F512097473F00A15E5F /* Effects.swift */; };
 		4BB6A42B20965A7E00DA4DCD /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB6A42A20965A7E00DA4DCD /* EditViewController.swift */; };
 		4BDFD8772094F4A300DE82C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFD8762094F4A300DE82C0 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		4B0CBF96209A425000875AB7 /* EditAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAudio.swift; sourceTree = "<group>"; };
+		4B0E85BD209B141B00877727 /* SaveAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAudioViewController.swift; sourceTree = "<group>"; };
 		4B614F512097473F00A15E5F /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
 		4BB6A42A20965A7E00DA4DCD /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		4BDFD8732094F4A300DE82C0 /* FxIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FxIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 				4BDFD8762094F4A300DE82C0 /* AppDelegate.swift */,
 				4BDFD8782094F4A300DE82C0 /* RecordViewController.swift */,
 				4BB6A42A20965A7E00DA4DCD /* EditViewController.swift */,
+				4B0E85BD209B141B00877727 /* SaveAudioViewController.swift */,
 				4B0CBF96209A425000875AB7 /* EditAudio.swift */,
 				4B614F512097473F00A15E5F /* Effects.swift */,
 				4BDFD87A2094F4A300DE82C0 /* Main.storyboard */,
@@ -209,6 +212,7 @@
 				4BDFD8792094F4A300DE82C0 /* RecordViewController.swift in Sources */,
 				4B0CBF97209A425000875AB7 /* EditAudio.swift in Sources */,
 				4BDFD8772094F4A300DE82C0 /* AppDelegate.swift in Sources */,
+				4B0E85BE209B141B00877727 /* SaveAudioViewController.swift in Sources */,
 				4B614F522097473F00A15E5F /* Effects.swift in Sources */,
 				4BB6A42B20965A7E00DA4DCD /* EditViewController.swift in Sources */,
 			);

@@ -135,4 +135,9 @@ class EditViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    @IBAction func saveFile(_ sender: Any) {
+        performSegue(withIdentifier: "saveSegue", sender: "saveFile")
+
+    }
+    
 }

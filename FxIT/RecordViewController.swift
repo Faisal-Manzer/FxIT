@@ -121,7 +121,5 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
             recordBtnImage.image = askPermissionImage
         }
     }
-    
-    diloge
 }
 

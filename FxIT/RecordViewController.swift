@@ -18,6 +18,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     
     var isRecording = false
     var isPermission = false
+    var isTesting = false
     let recordInProgress = "Recording... Tap on done"
     let recordInStandBy = "Tap to record"
     let recordImage = UIImage(named: "record")
@@ -45,11 +46,14 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     
     //MARK: Methods
     @IBAction func toggleRecording(_ sender: Any) {
+        permissionSetting()
         isRecording = !isRecording
-        if isRecording && isPermission{
-            recordAuido()
-        } else {
-            stopRecording()
+        if isPermission {
+            if isRecording {
+                recordAuido()
+            } else {
+                stopRecording()
+            }
         }
     }
     
@@ -87,11 +91,11 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     //MARK: AVDelgates
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
+        if flag && !isTesting{
             // recoding saved
             performSegue(withIdentifier: "editAudioSegue", sender: audioRecorder.url)
-        } else {
-            // not saved
+        } else if isTesting {
+            permissionSetting()
         }
     }
     
@@ -111,14 +115,19 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
             assistanceLabel.text = recordInStandBy
             recordBtnImage.image = recordImage
             isPermission = true
+            isTesting = false
         case AVAudioSessionRecordPermission.denied:
             assistanceLabel.text = permissionDeniedText
             settingLabel.text = settingSteps
             recordBtnImage.isUserInteractionEnabled = false
             recordBtnImage.image = deniedPermissionImage
+            isTesting = false
         case AVAudioSessionRecordPermission.undetermined:
             assistanceLabel.text = askPermissionText
             recordBtnImage.image = askPermissionImage
+            isTesting = true
+            recordAuido()
+            stopRecording()
         }
     }
 }
